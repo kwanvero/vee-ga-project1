@@ -32,7 +32,7 @@ module.exports = function (vivibot) {
   // let lock = lockCombination.split('')
 
   // Would like to randomise a number only when the user types 'start game'
-  vivibot.hear(/start game/, function (startGame) {
+  vivibot.respond(/start game/, function (startGame) {
     return startGame.send(`Alright, here\'s the rule:\nMy precious lock consist of five single numbers,\nYour job is to pick the lock and guess all five digits correctly\nWhen I say "lock xxxxx"\nYour answer should start with the word "pick" followed by five numbers\nExample: "pick 12345"\nWhen the right number is at the right position\n"x" will turn to "o",\nthis means you have unlocked one of the digits...\nI\'m very generous, so if you have got one of the numbers right,\nbut it\'s not in the right spot, you\'ll get a "-" as a tiny hint\n\nExample: "lock xoxo-"\n\n\nOh yeah, I won\'t tell you if a digit appears more than once, in my lock combination though,\n\nhappy picking!\n\n\nYou will know when you have guessed all five digits, as you would have unlocked my secret happy gifs...\n\n\n\nNow tell me how many tries would you like to have?\nReply by typing tries then a number\nLike such "tries 5"`)
   })
 

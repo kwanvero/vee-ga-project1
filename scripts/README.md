@@ -2,6 +2,8 @@
   Vivibot, LOVES food and games, the purrrrfect cat bot.
     As well all know, dogs have masters, cats have staff, and Vivi sure does love to be the game master.
 
+She was part of this assignment...
+https://gist.github.com/Nicktho/2591663526ad01027083b9e308c407de
 
 # Commands:
 
@@ -38,6 +40,22 @@
   Now tell me how many tries would you like to have?
   Reply by typing a number then tries
   Like such "tries 5"
+
+# Approach Taken
+  Umm, lots and lots of if elses
+
+# Unsolved problems
+  I can't figure out how to
+    1. Make the code smaller and not break, tried and it's just would'nt work.
+    2. When the same digits appear twice,
+        a. This solution is to run a loop randomizer through an array and check if previous arrays already had the number... that would be a too easy game...
+        b. This solution consist of checking whehter the digit appears twice, to show a differnt hint like (c) and only goes o when the digit has been entered correctly over the whole array.
+        c. or lets just keep it as part of Vivi being a difficult catbot....
+    3. What does this even mean? - can you show me how to do this?
+      " One of the commands must utilize the list of people in the class to send a direct message or reply."
+
+# Installation instructions...
+  umm huh? I don't know... add her to your channel I guess??
 
 # Author:
   Vee Mercado! - veronicammer@gmail.com
