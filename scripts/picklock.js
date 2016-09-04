@@ -33,7 +33,7 @@ module.exports = function (vivibot) {
 
   // Would like to randomise a number only when the user types 'start game'
   vivibot.respond(/start game/, function (startGame) {
-    return startGame.send(`Alright, here\'s the rule:\nMy precious lock consist of five single numbers,\nYour job is to pick the lock and guess all five digits correctly\nWhen I say "lock xxxxx"\nYour answer should start with the word "pick" followed by five numbers\nExample: "pick 12345"\nWhen the right number is at the right position\n"x" will turn to "o",\nthis means you have unlocked one of the digits...\nI\'m very generous, so if you have got one of the numbers right,\nbut it\'s not in the right spot, you\'ll get a "-" as a tiny hint\n\nExample: "lock xoxo-"\n\n\nOh yeah, I won\'t tell you if a digit appears more than once, in my lock combination though,\n\nhappy picking!\n\n\nYou will know when you have guessed all five digits, as you would have unlocked my secret happy gifs...\n\n\n\nNow tell me how many tries would you like to have?\nReply by typing tries then a number\nLike such "tries 5"`)
+    return startGame.send(`Alright, here\'s the rule:\nTo unlock my precious gif, you will have to guess five single digits correctly\nWhen I say "lock xxxxx"\nYour answer should start with the word "pick" followed by five numbers\nExample: "pick 12345"\nWhen you have guessed the right number at the right spot\n"x" will turn into "o",\nthis means you have unlocked one of the digits...\nI\'m very generous, so if you have got one of the numbers right,\nbut it\'s not in the right spot, you\'ll get a "-" as a tiny hint\n\nExample: "lock xoxo-"\n\n\nOh yeah, I won\'t tell you if a digit appears more than once, in my lock combination though,\n\nHappy picking!\n\n\nYou will know when you have guessed all five digits, as you would have unlocked my secret happy gifs...\n\n\n\nNow tell me how many tries would you like to have?\nReply by typing tries then a number\nLike such "tries 5"`)
   })
 
   vivibot.hear(/tries (.*)/i, function (setTries) {
@@ -59,11 +59,14 @@ module.exports = function (vivibot) {
       let userInput = guess.match[1]
       let pick = userInput.split('') // Split into arrays
       if (userInput.length < 5) { // Check if user guess enough digits
-        return guess.reply(`You sure this is serious lock picking?\nThis lock combination consist of five digits without spaces...`)
+        tries--
+        return guess.reply(`You sure this is serious lock picking?\nThis lock combination consist of five digits without spaces...\nYou\'ve got ${tries} tries left`)
       } else if (userInput.length > 5) {  // Check if user guess too many digits
-        return guess.reply(`Are you trying to test me?\nThis lock combination only consist of five digits without spaces...`)
+        tries--
+        return guess.reply(`Are you trying to test me?\nThis lock combination only consist of five digits without spaces...\nYou\'ve got ${tries} tries left`)
       } else if (isNaN(parseFloat(userInput))) { // Check if guess are digits at all
-        return guess.reply(`That\'s not even a number...`)
+        tries--
+        return guess.reply(`That\'s not even a number...\nYou\'ve got ${tries} tries left`)
       } else { // Other wise, if guess is legit
         let checkInput = pick.map(function (checkNumber, item) { // create a new array, by mappick over guess
           if (checkNumber !== lock[item]) { // checkNumber of guess in each array against lockCombination array in same index
@@ -81,7 +84,7 @@ module.exports = function (vivibot) {
         let hintUser = checkInput.join('') // lets string them together
         if (hintUser === 'ooooo') { // We will check if the string have all been satisfied, and the user has finally guessed what the random number is. - YAY gifs!
           tries = null
-          return guess.reply(`Yes!, the combination IS ${lock.join('')}\nThis is unbelievable!\nCongratulations!\nI can\'t believe you\'ve just picked my lock!\n${guess.random(youWin)}\n\n\n Want another game?\n(answer "start game", or set "tries #",\nor just start picking!`)
+          return guess.reply(`Yes!, the combination IS ${lock.join('')}\nThis is unbelievable!\nCongratulations!\nI can\'t believe you\'ve just picked my lock!\n${guess.random(youWin)}\n\n\n Want another game?\n(answer "start game", or set "tries #",\nor just start picking!)`)
         } else { // otherwise if their guess is still wrong
           tries-- // they have used one of their tries, we shall add on the tries
           return guess.send(`lock ${hintUser}'\nYou\'ve got ${tries} tries left`) // lets finally give the users a string of hint
@@ -103,7 +106,7 @@ module.exports = function (vivibot) {
       checkLocks()
     } else { // if user has used all their tries, they've just lost the game, and in come the taunting gifs.
       tries = null
-      return guess.send(`Awwww no!\nYou Loose!\nBetter luck next round, eh?\n${guess.random(youLoose)}\nOh and by the way, The previos lock combination was ${lock.join('')}\n\n\n Want another game?\n(answer "start game", or set "tries #",\nor just start picking!`)
+      return guess.send(`Awwww no!\nYou Loose!\nBetter luck next round, eh?\n${guess.random(youLoose)}\nOh and by the way, The previos lock combination was ${lock.join('')}\n\n\n Want another game?\n(answer "start game", or set "tries #",\nor just start picking!)`)
     }
   })
 }
