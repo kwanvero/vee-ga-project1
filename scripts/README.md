@@ -2,7 +2,7 @@
   Vivibot, LOVES food and games, the purrrrfect cat bot.
     As well all know, dogs have masters, cats have staff, and Vivi sure does love to be the game master.
 
-She was part of this assignment...
+She's part of this assignment...
 https://gist.github.com/Nicktho/2591663526ad01027083b9e308c407de
 
 # Commands:
