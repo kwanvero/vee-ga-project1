@@ -39,14 +39,14 @@ module.exports = function (vivibot) {
   vivibot.hear(/tries (.*)/i, function (setTries) {
     let userPref = setTries.match[1]
     tries = parseFloat(userPref)
-    if (tries > 20 || tries <= 0) {
-      tries = upToChance()
-      lock = lockCombination()
-      return setTries.send(`That is a tad greedy there, I\'ll just give you ${tries} tries\n Let\'s start?\nlock xxxxx\nYou\'ve got ${tries} tries left`)
-    } else if (isNaN(tries)) {
+    if (isNaN(tries)) {
       tries = 6
       lock = lockCombination()
       return setTries.send(`You sure think you are funny, huh?\nI\'ll just give you ${tries} tries\n Let\'s just start?\nlock xxxxx\nYou\'ve got ${tries} tries left`)
+    } else if (tries > 20 || tries <= 0) {
+      tries = upToChance()
+      lock = lockCombination()
+      return setTries.send(`That is a tad greedy there, I\'ll just give you ${tries} tries\n Let\'s start?\nlock xxxxx\nYou\'ve got ${tries} tries left`)
     } else {
       lock = lockCombination()
       return setTries.send(`Sound\'s good\n Let\'s start?\nlock xxxxx\nYou\'ve got ${tries} tries left`) // lets start the game
