@@ -99,7 +99,7 @@ module.exports = function (vivibot) {
       missedYourChance()
       checkLocks()
     } else
-    if (tries > 0) { // Check if user still has enough tries to play the game
+    if (tries >= 1) { // Check if user still has enough tries to play the game
       checkLocks()
     } else { // if user has used all their tries, they've just lost the game, and in come the taunting gifs.
       tries = null
