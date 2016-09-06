@@ -15,7 +15,7 @@ let youLoose = [
 ]
 
 module.exports = function (vivibot) {
-  // Randomise a number
+  // Randomise a lock combination
   function lockCombination () {
     return Math.floor(Math.random() * (99999 - 10000) + 10000).toString().split('')
   }
