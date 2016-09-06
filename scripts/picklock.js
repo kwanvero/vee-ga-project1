@@ -129,7 +129,7 @@ module.exports = function (vivibot) {
           (answer "start game", or set "tries #", or just start picking!)`)
         } else { // otherwise if their guess is still wrong
           tries-- // they have used one of their tries, we shall deduct yo libido, I mean tries
-          return guess.send(`lock ${hintUser}'
+          return guess.send(`lock ${hintUser}
           You\'ve got ${tries} tries left`) // lets finally give the users a string of hint
         }
       }
