@@ -82,7 +82,7 @@ module.exports = function (vivibot) {
           tries = null
           return guess.reply(`Yes!, the combination IS ${lock.join('')}\nThis is unbelievable!\nCongratulations!\nI can\'t believe you\'ve just picked my lock!\n${guess.random(youWin)}\n\n\n Want another game?\n(answer "start game", or set "tries #",\nor just start picking!)`)
         } else { // otherwise if their guess is still wrong
-          tries-- // they have used one of their tries, we shall add on the tries
+          tries-- // they have used one of their tries, we shall deduct yo libido, I mean tries
           return guess.send(`lock ${hintUser}'\nYou\'ve got ${tries} tries left`) // lets finally give the users a string of hint
         }
       }
