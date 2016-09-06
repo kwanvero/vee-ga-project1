@@ -1,24 +1,29 @@
 # Description:
-  Vivibot, LOVES food and games, the purrrrfect cat bot.
-    As well all know, dogs have masters, cats have staff, and Vivi sure does love to be the game master.
+###Vivibot, LOVES food and games, the purrrrfect cat bot.
+    As we all know, dogs have masters, cats have staff, and Vivi sure does love to be the game master.
 
-She's part of this assignment...
+###She's part of this assignment...
+  ```
 https://gist.github.com/Nicktho/2591663526ad01027083b9e308c407de
-
+  ```
+  
 # Commands:
 
-  # Ask
+  ```
   Whats for dinner? - she's got a few favourites, so ask often!
+  ```
+  ```
   Where are you now? - She's a cat, so she sure does roam.... She probably can portal from one state to the other in seconds as well...
-
-  #PickLock Game
-  start game - to read the rules and start playing Vivi's favourite game.
-     @vivibot - if you aren't in a private session
-
+  ```
+  ```
+  start game - to read the rules and start playing Vivi's favourite game. - @vivibot - if you aren't in a private session
+  ```
+  ```
   tries # - replace # with any number you fancy, to set your prefs for the game.
-
+  ```
+  ```
   pick ##### - replace # with your 5 guessed digits to start guessing
-
+  ```
 
 # PickLock game rules - as explained by Vivi herself.
   My precious lock consist of five consecutive single numbers,
@@ -46,12 +51,12 @@ https://gist.github.com/Nicktho/2591663526ad01027083b9e308c407de
 
 # Unsolved problems
   I can't figure out how to
-    1. Make the code smaller and not break, tried and it's just would'nt work.
-    2. When the same digits appear twice,
-        a. This solution is to run a loop randomizer through an array and check if previous arrays already had the number... that would be a too easy game...
-        b. This solution consist of checking whehter the digit appears twice, to show a differnt hint like (c) and only goes o when the digit has been entered correctly over the whole array.
-        c. or lets just keep it as part of Vivi being a difficult catbot....
-    3. What does this even mean? - can you show me how to do this?
+###1. Make the code smaller and not break, tried and it's just would'nt work.*
+###2. When the same digits appear twice,*
+        *a. This solution is to run a loop randomizer through an array and check if previous arrays already had the number... that would be a too easy game...*
+        *b. This solution consist of checking whehter the digit appears twice, to show a differnt hint like (c) and only goes o when the digit has been entered correctly over the whole array.*
+        *c. or lets just keep it as part of Vivi being a difficult catbot....*
+###3. What does this even mean? - can you show me how to do this?*
       " One of the commands must utilize the list of people in the class to send a direct message or reply."
 
 # Installation instructions...
