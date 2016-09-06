@@ -2,11 +2,9 @@
 ###Vivibot, LOVES food and games, the purrrrfect cat bot.
     As we all know, dogs have masters, cats have staff, and Vivi sure does love to be the game master.
 
-###She's part of this assignment...
-  ```
-https://gist.github.com/Nicktho/2591663526ad01027083b9e308c407de
-  ```
-  
+[She's part of this assignment...](https://gist.github.com/Nicktho/2591663526ad01027083b9e308c407de)
+
+
 # Commands:
 
   ```
@@ -27,12 +25,16 @@ https://gist.github.com/Nicktho/2591663526ad01027083b9e308c407de
 
 # PickLock game rules - as explained by Vivi herself.
   My precious lock consist of five consecutive single numbers,
+
   You're job is to pick the lock and guess all five digits correctly
   When I say "lock xxxxx"
+
   You're answer should start with the word "pick" followed by five numbers
   Example: "pick 12345"
+
   When the right number is at the right position
   "x" will turn to "o", that means you have unlocked one of the digits...
+
   I'm very generous, so if you have got one of the numbers right, but it's not in the right spot, you'll get a "-" as a tiny hint
   Example: "lock xoxo-"
 
@@ -43,7 +45,9 @@ https://gist.github.com/Nicktho/2591663526ad01027083b9e308c407de
 
 # Set PickLock game tries - as explained by Vivi herself.
   Now tell me how many tries would you like to have?
+
   Reply by typing a number then tries
+  
   Like such "tries 5"
 
 # Approach Taken
