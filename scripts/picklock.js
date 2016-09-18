@@ -16,13 +16,13 @@ let youLoose = [
 
 module.exports = function (vivibot) {
   // Randomise a lock combination
-  function lockCombination () {
+  let lockCombination = () => {
     return Math.floor(Math.random() * (99999 - 10000) + 10000).toString().split('')
   }
-  let lock
+  let lock = null
 
   // set numbers of tries
-  function upToChance () {
+  let upToChance = () => {
     return Math.floor(Math.random() * (20 - 7) + 7)
   }
 
@@ -57,7 +57,7 @@ module.exports = function (vivibot) {
     tries = parseFloat(userPref)
     if (isNaN(tries)) {
       tries = 6
-      lock = lockCombination()
+      lock = lockCombination
       return setTries.send(`You sure think you are funny, huh?
         I\'ll just give you ${tries} tries
         Let\'s just start?
@@ -65,15 +65,15 @@ module.exports = function (vivibot) {
         lock xxxxx
         You\'ve got ${tries} tries left`)
     } else if (tries > 20 || tries <= 0) {
-      tries = upToChance()
-      lock = lockCombination()
+      tries = upToChance
+      lock = lockCombination
       return setTries.send(`That is a tad greedy there, I\'ll just give you ${tries} tries
       Let\'s start?
 
       lock xxxxx
       You\'ve got ${tries} tries left`)
     } else {
-      lock = lockCombination()
+      lock = lockCombination
       return setTries.send(`Sound\'s good
       Let\'s start?
 
@@ -84,7 +84,7 @@ module.exports = function (vivibot) {
 
   // When a user has made a guess
   vivibot.hear(/pick (.*)/, function (guess) {
-    function checkLocks () { // Full game hint function right here
+    let checkLocks = () => { // Full game hint function right here
       let userInput = guess.match[1]
       let pick = userInput.split('') // Split into arrays
       if (userInput.length < 5) { // Check if user guess enough digits
@@ -92,12 +92,14 @@ module.exports = function (vivibot) {
         return guess.reply(`You sure this is serious lock picking?
           This lock combination consist of five digits without spaces...
           You\'ve got ${tries} tries left`)
-      } else if (userInput.length > 5) {  // Check if user guess too many digits
+      }
+      if (userInput.length > 5) {  // Check if user guess too many digits
         tries--
         return guess.reply(`Are you trying to test me?
           This lock combination only consist of five digits without spaces...
           You\'ve got ${tries} tries left`)
-      } else if (isNaN(parseFloat(userInput))) { // Check if guess are digits at all
+      }
+      if (isNaN(parseFloat(userInput))) { // Check if guess are digits at all
         tries--
         return guess.reply(`That\'s not even a number...
         You\'ve got ${tries} tries left`)
@@ -135,19 +137,19 @@ module.exports = function (vivibot) {
       }
     }
 
-    function missedYourChance () {
+    let missedYourChance = () => {
       return guess.send(`Well since you\'ve not set your tries preferences,
       I\'ve given you ${tries} tries`)
     }
 
     if (tries == null) {
-      tries = upToChance()
-      lock = lockCombination()
-      missedYourChance()
-      checkLocks()
+      tries = upToChance
+      lock = lockCombination
+      missedYourChance
+      checkLocks
     } else
     if (tries >= 1) { // Check if user still has enough tries to play the game
-      checkLocks()
+      checkLocks
     } else { // if user has used all their tries, they've just lost the game, and in come the taunting gifs.
       tries = null
       return guess.send(`Awwww no!
